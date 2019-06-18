@@ -11,6 +11,11 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.edu.gdpt.yinyuan171026qdk.fragment.DonTaiFragment;
+import cn.edu.gdpt.yinyuan171026qdk.fragment.MeFragment;
+import cn.edu.gdpt.yinyuan171026qdk.fragment.SouyeFragment;
+import cn.edu.gdpt.yinyuan171026qdk.fragment.XiaoxiFragment;
+
 public class MainActivity extends AppCompatActivity {
     List<Fragment> fragmentList;
     TabLayout tabLayout;
@@ -22,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tabLayout = (TabLayout) findViewById(R.id.tablayout1);
-        tabLayout.addTab(tabLayout.newTab().setText("首页 ").setIcon(R.drawable.icon_certificate));
-        tabLayout.addTab(tabLayout.newTab().setText("消息 ").setIcon(R.drawable.icon_message));
-        tabLayout.addTab(tabLayout.newTab().setText("动态 ").setIcon(R.drawable.icon_circle));
-        tabLayout.addTab(tabLayout.newTab().setText("我 ").setIcon(R.drawable.icon_signal));
+        tabLayout.addTab(tabLayout.newTab().setText("首页").setIcon(R.drawable.icon_certificate));
+        tabLayout.addTab(tabLayout.newTab().setText("消息").setIcon(R.drawable.icon_message));
+        tabLayout.addTab(tabLayout.newTab().setText("动态").setIcon(R.drawable.icon_circle));
+        tabLayout.addTab(tabLayout.newTab().setText("我").setIcon(R.drawable.icon_signal));
         fragmentList = new ArrayList<>();
         fragmentList.add(new SouyeFragment());
         fragmentList.add(new DonTaiFragment());

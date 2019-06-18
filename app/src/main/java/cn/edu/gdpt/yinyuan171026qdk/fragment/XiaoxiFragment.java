@@ -1,4 +1,4 @@
-package cn.edu.gdpt.yinyuan171026qdk;
+package cn.edu.gdpt.yinyuan171026qdk.fragment;
 
 
 import android.os.Bundle;
@@ -7,14 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import cn.edu.gdpt.yinyuan171026qdk.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SouyeFragment extends Fragment {
+public class XiaoxiFragment extends Fragment {
 
 
-    public SouyeFragment() {
+    public XiaoxiFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +25,7 @@ public class SouyeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_souye, container, false);
+        return inflater.inflate(R.layout.fragment_xiaoxi, container, false);
     }
 
 }

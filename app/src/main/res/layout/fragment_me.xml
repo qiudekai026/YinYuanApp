@@ -50,6 +50,7 @@
         app:civ_border_width="1dp"
         android:src="@drawable/touxiang"
         app:layout_anchor="@id/collapsing_tool_bar"
-        app:layout_anchorGravity="center" />
+        app:layout_anchorGravity="center"
+        app:layout_behavior=".AvatarBehavior"/>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -1,8 +1,13 @@
 package cn.edu.gdpt.yinyuan171026qdk.fragment;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
@@ -11,7 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import cn.edu.gdpt.yinyuan171026qdk.R;
+import cn.edu.gdpt.yinyuan171026qdk.UpdateUserInfoReceiver;
 import cn.edu.gdpt.yinyuan171026qdk.activity.LoginActivity;
+import cn.edu.gdpt.yinyuan171026qdk.utils.DBUtils;
 import cn.edu.gdpt.yinyuan171026qdk.utils.UtilsHelper;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -25,6 +32,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     private View view;
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private IntentFilter filter;
+    private UpdateUserInfoReceiver updateUserInfoReceiver;
 
     public MeFragment() {
         // Required empty public constructor
@@ -46,13 +54,61 @@ public class MeFragment extends Fragment implements View.OnClickListener {
         isLogin= UtilsHelper.readLoginStatus(getActivity());
         setLoginParams(isLogin);
         setListener();
+        receiver();
+    }
+
+    private void receiver() {
+        updateUserInfoReceiver=new UpdateUserInfoReceiver(new UpdateUserInfoReceiver.BaseOnReceiveMsgListenter() {
+            @Override
+            public void onReceiveMsg(Context context, Intent intent) {
+                String action=intent.getStringExtra(UpdateUserInfoReceiver.ACTION.UPDATE_USERINFO);
+                if (UpdateUserInfoReceiver.INTENT_TYPE.UPDATE_HEAD.equals(action)){
+                    String type=intent.getStringExtra(UpdateUserInfoReceiver.INTENT_TYPE.TYPE_NAME);
+                    if (UpdateUserInfoReceiver.INTENT_TYPE.UPDATE_HEAD.equals(type)){
+                        String head=intent.getStringExtra("head");
+                        Bitmap bt= BitmapFactory.decodeFile(head);
+                        if (bt!=null){
+                            Drawable drawable=new BitmapDrawable(bt);
+                            iv_avatar.setImageDrawable(drawable);
+                        }else {
+                            iv_avatar.setImageResource(R.drawable.touxiang);
+                        }
+                    }
+                }
+            }
+        });
+        filter=new IntentFilter(UpdateUserInfoReceiver.ACTION.UPDATE_USERINFO);
+        getActivity().registerReceiver(updateUserInfoReceiver,filter);
     }
 
     private void setLoginParams(boolean isLogin) {
+        if (isLogin){
+            String userName=UtilsHelper.readLoginUserName(getActivity());
+            collapsingToolbarLayout.setTitle(userName);
+            String head= DBUtils.getInstance(getActivity()).getUserHead(userName);
+            Bitmap bt=BitmapFactory.decodeFile(head);
+            if (bt!=null){
+                Drawable drawable=new BitmapDrawable(bt);
+                iv_avatar.setImageDrawable(drawable);
+            }else {
+                iv_avatar.setImageResource(R.drawable.touxiang);
+            }
+        }else {
+            iv_avatar.setImageResource(R.drawable.touxiang);
+            collapsingToolbarLayout.setTitle("点击登录");
+        }
     }
 
     private void setListener() {
         iv_avatar.setOnClickListener(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (updateUserInfoReceiver != null){
+            getActivity().unregisterReceiver(updateUserInfoReceiver);
+        }
     }
 
     @Override
@@ -62,6 +118,16 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                 Intent intent=new Intent(getActivity().getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data!=null){
+            boolean isLogin=data.getBooleanExtra("isLogin",false);
+            setLoginParams(isLogin);
+            this.isLogin=isLogin;
         }
     }
 }

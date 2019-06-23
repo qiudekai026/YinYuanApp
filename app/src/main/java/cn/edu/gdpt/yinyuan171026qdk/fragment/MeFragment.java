@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import cn.edu.gdpt.yinyuan171026qdk.R;
 import cn.edu.gdpt.yinyuan171026qdk.UpdateUserInfoReceiver;
 import cn.edu.gdpt.yinyuan171026qdk.activity.LoginActivity;
+import cn.edu.gdpt.yinyuan171026qdk.activity.UserInfoActivity;
 import cn.edu.gdpt.yinyuan171026qdk.utils.DBUtils;
 import cn.edu.gdpt.yinyuan171026qdk.utils.UtilsHelper;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -114,9 +115,14 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.iv_avatar://
-                Intent intent=new Intent(getActivity().getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
+            case R.id.iv_avatar:
+                if (isLogin){
+                    Intent userinfo=new Intent(getActivity(), UserInfoActivity.class);
+                    startActivity(userinfo);
+                }else {
+                    Intent login=new Intent(getActivity(), LoginActivity.class);
+                    startActivityForResult(login,1);
+                }
                 break;
         }
     }

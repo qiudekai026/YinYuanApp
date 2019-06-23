@@ -3,6 +3,7 @@ package cn.edu.gdpt.yinyuan171026qdk.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -85,5 +86,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editor.putBoolean("isLogin",status);
         editor.putString("LoginUserName",userName);
         editor.commit();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(data!=null){
+            String userName=data.getStringExtra("userName");
+            if (!TextUtils.isEmpty(userName)){
+                et_user_name.setText(userName);
+                et_user_name.setSelection(userName.length());
+            }
+        }
     }
 }

@@ -24,7 +24,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         android:orientation="vertical">
 
@@ -47,7 +47,25 @@
                 android:layout_marginTop="-25px"
                 android:gravity="right"
                 android:orientation="horizontal">
-
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                android:layout_below="@+id/viewGroup"
+                android:layout_marginTop="10dp">
+                <ImageView
+                    android:id="@+id/suanming"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/suanming"/>
+                <ImageView
+                    android:id="@+id/yinyuan"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/hunyin"/>
             </LinearLayout>
         </RelativeLayout>
 

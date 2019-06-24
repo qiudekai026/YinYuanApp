@@ -1,6 +1,7 @@
 package cn.edu.gdpt.yinyuan171026qdk.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -19,17 +20,21 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import cn.edu.gdpt.yinyuan171026qdk.R;
+import cn.edu.gdpt.yinyuan171026qdk.activity.SuanMingActivity;
+import cn.edu.gdpt.yinyuan171026qdk.activity.YinYuanActivity;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SouyeFragment extends Fragment {
+public class SouyeFragment extends Fragment implements View.OnClickListener {
     private ImageView[] imageViews = null;
     private ImageView imageView = null;
     private ViewPager advPager = null;
     private AtomicInteger what = new AtomicInteger(0);
     private boolean isContinue = true;
+    private ImageView suanming;
+    private ImageView yinyuan;
 
 
     public SouyeFragment() {
@@ -43,6 +48,7 @@ public class SouyeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_souye, container, false);
         initViewPager(view);
+        initView(view);
         return view;
     }
 
@@ -117,6 +123,8 @@ public class SouyeFragment extends Fragment {
             }
 
         }).start();
+
+
     }
 
     private void whatOption() {
@@ -140,6 +148,28 @@ public class SouyeFragment extends Fragment {
         }
 
     };
+
+    private void initView(View view) {
+        suanming = (ImageView) view.findViewById(R.id.suanming);
+        yinyuan = (ImageView) view.findViewById(R.id.yinyuan);
+
+        suanming.setOnClickListener(this);
+        yinyuan.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.suanming:
+                Intent intent1=new Intent(getActivity(), SuanMingActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.yinyuan:
+                Intent intent2=new Intent(getActivity(), YinYuanActivity.class);
+                startActivity(intent2);
+                break;
+        }
+    }
 
     private final class GuidePageChangeListener implements ViewPager.OnPageChangeListener {
 

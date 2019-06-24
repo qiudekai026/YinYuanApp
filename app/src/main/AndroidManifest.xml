@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".activity.ShenFenZhengActivity"></activity>
+        <activity android:name=".activity.YinYuanActivity"></activity>
+        <activity android:name=".activity.SuanMingActivity" />
+        <activity android:name=".activity.ShenFenZhengActivity" />
         <activity android:name=".activity.ChangeUserInfoActivity" />
         <activity android:name=".activity.UserInfoActivity" />
         <activity android:name=".activity.LoginActivity" />

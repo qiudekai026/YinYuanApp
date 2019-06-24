@@ -14,10 +14,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import cn.edu.gdpt.yinyuan171026qdk.R;
 import cn.edu.gdpt.yinyuan171026qdk.UpdateUserInfoReceiver;
 import cn.edu.gdpt.yinyuan171026qdk.activity.LoginActivity;
+import cn.edu.gdpt.yinyuan171026qdk.activity.ShenFenZhengActivity;
 import cn.edu.gdpt.yinyuan171026qdk.activity.UserInfoActivity;
 import cn.edu.gdpt.yinyuan171026qdk.utils.DBUtils;
 import cn.edu.gdpt.yinyuan171026qdk.utils.UtilsHelper;
@@ -34,6 +37,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private IntentFilter filter;
     private UpdateUserInfoReceiver updateUserInfoReceiver;
+    private TextView shenfenzheng;
 
     public MeFragment() {
         // Required empty public constructor
@@ -52,6 +56,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     private void initView(View view) {
         iv_avatar=(CircleImageView)view.findViewById(R.id.iv_avatar);
         collapsingToolbarLayout=(CollapsingToolbarLayout)view.findViewById(R.id.collapsing_tool_bar);
+        shenfenzheng=(TextView)view.findViewById(R.id.shenfenzheng);
         isLogin= UtilsHelper.readLoginStatus(getActivity());
         setLoginParams(isLogin);
         setListener();
@@ -102,6 +107,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
 
     private void setListener() {
         iv_avatar.setOnClickListener(this);
+        shenfenzheng.setOnClickListener(this);
     }
 
     @Override
@@ -124,6 +130,13 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                     startActivityForResult(login,1);
                 }
                 break;
+            case R.id.shenfenzheng:
+                if (isLogin){
+                    Intent userinfo=new Intent(getActivity(), ShenFenZhengActivity.class);
+                    startActivity(userinfo);
+                }else {
+                    Toast.makeText(getActivity(),"用户还未登录",Toast.LENGTH_SHORT).show();
+                }
         }
     }
 

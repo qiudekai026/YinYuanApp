@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ShenFenZhengActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="真实姓名："
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/et_xingming"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="请输入您的姓名"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/layout">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="身份证号："
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/shenfenzheng"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="请输入您的身份证"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/send_shenfenzheng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout2"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="40dp"
+            android:text="开始认证"/>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

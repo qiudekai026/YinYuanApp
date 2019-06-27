@@ -6,20 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".activity.GuidePageActivity">
 
-    <com.bigkoo.convenientbanner.ConvenientBanner
-        android:id="@+id/cb_test"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <Button
-        android:id="@+id/btn_test"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="30dp"
-        android:text="进入app"
-        android:visibility="gone" />
+        android:layout_height="match_parent"
+        android:src="@drawable/b1" />
 
 </RelativeLayout>

@@ -47,7 +47,7 @@ public class YinYuanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_yin_yuan);
         bingpicimg=(ImageView)findViewById(R.id.bing_pic_img);
         bingpicimg.setAlpha(0.6f);
-        tvresult = (TextView) findViewById(R.id.tvresult);
+         tvresult = (TextView) findViewById(R.id.tvresult);
         constellation = (Spinner) findViewById(R.id.spinner1);
         time = (Spinner) findViewById(R.id.spinner2);
         loadBingPic();

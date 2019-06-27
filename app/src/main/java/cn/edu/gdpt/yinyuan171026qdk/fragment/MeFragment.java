@@ -20,7 +20,10 @@ import android.widget.Toast;
 import cn.edu.gdpt.yinyuan171026qdk.R;
 import cn.edu.gdpt.yinyuan171026qdk.UpdateUserInfoReceiver;
 import cn.edu.gdpt.yinyuan171026qdk.activity.LoginActivity;
+import cn.edu.gdpt.yinyuan171026qdk.activity.MygamesActivity;
+import cn.edu.gdpt.yinyuan171026qdk.activity.SettingActivity;
 import cn.edu.gdpt.yinyuan171026qdk.activity.ShenFenZhengActivity;
+import cn.edu.gdpt.yinyuan171026qdk.activity.ShoppingActivity;
 import cn.edu.gdpt.yinyuan171026qdk.activity.UserInfoActivity;
 import cn.edu.gdpt.yinyuan171026qdk.utils.DBUtils;
 import cn.edu.gdpt.yinyuan171026qdk.utils.UtilsHelper;
@@ -37,7 +40,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private IntentFilter filter;
     private UpdateUserInfoReceiver updateUserInfoReceiver;
-    private TextView shenfenzheng;
+    private TextView shenfenzheng,shopping,setting,mygames;
 
     public MeFragment() {
         // Required empty public constructor
@@ -57,6 +60,9 @@ public class MeFragment extends Fragment implements View.OnClickListener {
         iv_avatar=(CircleImageView)view.findViewById(R.id.iv_avatar);
         collapsingToolbarLayout=(CollapsingToolbarLayout)view.findViewById(R.id.collapsing_tool_bar);
         shenfenzheng=(TextView)view.findViewById(R.id.shenfenzheng);
+        shopping=(TextView)view.findViewById(R.id.shopping);
+        setting=(TextView)view.findViewById(R.id.setting);
+        mygames=(TextView)view.findViewById(R.id.mygames);
         isLogin= UtilsHelper.readLoginStatus(getActivity());
         setLoginParams(isLogin);
         setListener();
@@ -108,6 +114,9 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     private void setListener() {
         iv_avatar.setOnClickListener(this);
         shenfenzheng.setOnClickListener(this);
+        setting.setOnClickListener(this);
+        shopping.setOnClickListener(this);
+        mygames.setOnClickListener(this);
     }
 
     @Override
@@ -137,6 +146,28 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                 }else {
                     Toast.makeText(getActivity(),"用户还未登录",Toast.LENGTH_SHORT).show();
                 }
+                break;
+            case R.id.setting:
+                    Intent userinfo=new Intent(getActivity(), SettingActivity.class);
+                    startActivity(userinfo);
+                break;
+            case R.id.shopping:
+                if (isLogin){
+                    Intent user=new Intent(getActivity(), ShoppingActivity.class);
+                    startActivity(user);
+                }else {
+                    Toast.makeText(getActivity(),"用户还未登录",Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.mygames:
+                if (isLogin){
+                    Intent user=new Intent(getActivity(), MygamesActivity.class);
+                    startActivity(user);
+                }else {
+                    Toast.makeText(getActivity(),"用户还未登录",Toast.LENGTH_SHORT).show();
+                }
+                break;
+
         }
     }
 

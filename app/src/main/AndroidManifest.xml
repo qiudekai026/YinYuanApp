@@ -12,22 +12,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".activity.SettingActivity"></activity>
+        <activity android:name=".activity.ShoppingActivity" />
+        <activity android:name=".activity.MygamesActivity" />
         <activity android:name=".activity.GuidePageActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    <activity android:name=".activity.YinYuanActivity" />
+        <activity android:name=".activity.YinYuanActivity" />
         <activity android:name=".activity.SuanMingActivity" />
         <activity android:name=".activity.ShenFenZhengActivity" />
         <activity android:name=".activity.ChangeUserInfoActivity" />
         <activity android:name=".activity.UserInfoActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

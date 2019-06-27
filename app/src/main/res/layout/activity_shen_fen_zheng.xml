@@ -8,11 +8,30 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layout123"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/holo_red_dark"
+            android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:text="实名认证"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:textSize="21dp" />
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/layout123">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,6 +71,7 @@
                 android:layout_marginTop="10dp" />
         </LinearLayout>
         <Button
+            android:id="@+id/btn1"
             android:onClick="search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +87,8 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="180dp">
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/btn1">
 
             <TextView
                 android:id="@+id/show_reason"

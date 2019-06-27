@@ -9,17 +9,33 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingTop="10dp"
+            android:text="姻缘"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_red_dark"
+            android:textAlignment="center"
+            android:textSize="21dp" />
+
+
         <ImageView
             android:id="@+id/bing_pic_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="50dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,6 +67,10 @@
                 android:onClick="onClick"
                 android:text="查询" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -58,11 +78,12 @@
                 <TextView
                     android:id="@+id/tvresult"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:textColor="#000000" />
 
             </ScrollView>
+            </LinearLayout>
         </LinearLayout>
     </FrameLayout>
 </RelativeLayout>

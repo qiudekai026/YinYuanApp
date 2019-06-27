@@ -3,10 +3,12 @@ package cn.edu.gdpt.yinyuan171026qdk.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +25,7 @@ import cn.edu.gdpt.yinyuan171026qdk.R;
 
 import cn.edu.gdpt.yinyuan171026qdk.R;
 
-public class SuanMingActivity extends AppCompatActivity {
+public class SuanMingActivity extends AppCompatActivity implements View.OnClickListener {
     TextView yangli1, yinli1, wuxing1, chongsha1, baiji1, jishen1, yi1, xiongshen1, ji1;
     private Button send;
     private EditText name;
@@ -62,21 +64,10 @@ public class SuanMingActivity extends AppCompatActivity {
         send = (Button) findViewById(R.id.send);
         name = (EditText) findViewById(R.id.name);
 
+        send.setOnClickListener(this);
+
     }
 
-    public void search(View view) {
-        makeHttpRequest();
-        yangli1.setText("");
-        yinli1.setText("");
-        wuxing1.setText("");
-        chongsha1.setText("");
-        baiji1.setText("");
-        jishen1.setText("");
-        yi1.setText("");
-        xiongshen1.setText("");
-        ji1.setText("");
-        ;
-    }
 
     private void makeHttpRequest() {
         new Thread(new Runnable() {
@@ -153,11 +144,24 @@ public class SuanMingActivity extends AppCompatActivity {
             yi1.setText("宜："+yi);
             xiongshen1.setText("凶神宜忌："+xiongshen);
             ji1.setText("忌："+ji);
-            yangli1.setText("查询成功");
         }else if (resultcode!=0){
             yangli1.setText("查询失败");
         }
     }
 
+    @Override
+    public void onClick(View v) {
+            makeHttpRequest();
+            yangli1.setText("");
+            yinli1.setText("");
+            wuxing1.setText("");
+            chongsha1.setText("");
+            baiji1.setText("");
+            jishen1.setText("");
+            yi1.setText("");
+            xiongshen1.setText("");
+            ji1.setText("");
+
+    }
 }
 

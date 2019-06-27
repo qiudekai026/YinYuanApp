@@ -30,10 +30,6 @@
         android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:background="#ffffff">
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:background="#E4E4E4"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -143,11 +139,12 @@
         <Button
             android:id="@+id/tuichu"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="25dp"
             android:layout_marginRight="30dp"
             android:text="退出登录"
+            android:background="@drawable/tuichubutton"
             android:textSize="20sp"
             android:textColor="#ffffff"/>
 </LinearLayout>

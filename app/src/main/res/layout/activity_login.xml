@@ -21,12 +21,21 @@
             android:textAlignment="center"
             android:textSize="21dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/textshape"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_margin="15dp">
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -38,12 +47,10 @@
                 android:layout_width="fill_parent"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal"
-                android:drawablePadding="10dp"
                 android:background="@null"
-                android:layout_margin="10dp"
+                android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
                 android:hint="请输入用户名"
-                android:paddingLeft="8dp"
                 android:singleLine="true"
                 android:textColor="#000000"
                 android:textCursorDrawable="@null"
@@ -55,7 +62,8 @@
             android:layout_height="50dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_margin="15dp">
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -67,18 +75,17 @@
                 android:layout_width="fill_parent"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal"
-                android:drawablePadding="10dp"
                 android:background="@null"
                 android:gravity="center_vertical"
-                android:layout_margin="10dp"
+                android:layout_marginLeft="10dp"
                 android:hint="请输入密码"
-                android:paddingLeft="8dp"
                 android:singleLine="true"
                 android:textColor="#000000"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp"
                 />
         </LinearLayout>
+    </LinearLayout>
         <Button
             android:id="@+id/btn_login"
             android:layout_width="fill_parent"
@@ -89,6 +96,7 @@
             android:gravity="center"
             android:text="登录"
             android:textColor="#ffffff"
+            android:background="@drawable/buttonshape"
             android:textCursorDrawable="@android:color/white"
             android:textSize="18sp" />
         <LinearLayout

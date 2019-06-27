@@ -54,18 +54,45 @@
                 android:orientation="horizontal"
                 android:layout_below="@+id/viewGroup"
                 android:layout_marginTop="10dp">
-                <ImageView
-                    android:id="@+id/suanming"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/suanming"/>
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <ImageView
+                        android:id="@+id/suanming"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/suanming"/>
+                    <TextView
+                        android:layout_marginTop="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="八字算命"
+                        android:textColor="@android:color/background_dark"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
                 <ImageView
                     android:id="@+id/yinyuan"
-                    android:layout_width="0dp"
+                    android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:src="@drawable/yinyuantaohua"/>
+                    android:src="@drawable/yinyuantaohua" />
+                    <TextView
+                        android:layout_marginTop="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="姻缘"
+                        android:textColor="@android:color/background_dark"/>
+                </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
 

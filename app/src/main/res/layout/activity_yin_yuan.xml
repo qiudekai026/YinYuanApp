@@ -63,7 +63,12 @@
                 android:id="@+id/send_request"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#3225"
+                android:background="@drawable/buttonshape"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textSize="21dp"
+                android:textColor="#ffffff"
                 android:onClick="onClick"
                 android:text="查询" />
 
